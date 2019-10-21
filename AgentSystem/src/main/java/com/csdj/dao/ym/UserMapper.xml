@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.UserMapper">
+
+	<resultMap id="userList" type="User">
+		<id property="roleId" column="roleId"/>
+		<result property="userCode" column="userCode"/>
+		<result property="userName" column="userName"/>
+		<result property="userPassword" column="userPassword"/>
+		<result property="creationTime" column="creationTime"/>
+		<result property="isStart" column="isStart"/>
+		<association property="role" javaType="Role">
+			<id property="id" column="id"/>
+			<result property="roleName" column="roleName"/>
+		</association>
+	</resultMap>
+	<!--查询所有用户信息-->
+	<select id="getUser" resultMap="userList" parameterType="User">
+		select as_user.id,as_user.userCode,as_user.userName,as_user.userPassword,as_role.roleName,as_user.creationTime,as_user.isStart
+		from as_user,as_role
+		where as_user.roleId=as_role.id
+	</select>
+	<!--删除用户信息-->
+	<delete id="deleteUser" parameterType="User">
+		DELETE from as_user WHERE id=#{id}
+	</delete>
+	<!--新增用户信息-->
+	<insert id="addUser" parameterType="User">
+		insert  into `as_user`
+		(`userCode`,`userName`,`userPassword`,`creationTime`,`createdBy`,`isStart`,`roleId`)
+	values (#{userCode},#{userName},#{userPassword},NOW(),'admin',#{isStart},#{roleId})
+	</insert>
+	<!--修改用户信息-->
+	<update id="updateUser" parameterType="User">
+		UPDATE as_user
+		SET userCode=#{userCode},userName=#{userName},userPassword=#{userPassword},roleId=#{roleId},isStart=#{isStart}
+		WHERE id=#{id}
+	</update>
+
+</mapper>

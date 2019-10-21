@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.SystemAuthorityMapper">
+    <!-- 所有角色供选择 -->
+    <select id="GetRoleName" resultType="Role">
+        select id,roleName from as_role
+    </select>
+
+    <select id="getSelect_FunctionId" resultType="int">
+        SELECT p.functionId FROM as_function as f,as_role_premission as p WHERE  f.id = p.functionId and p.roleId=#{roleId}
+    </select>
+
+    <update id="appadd" parameterType="SystemConfig">
+	update as_systemconfig set configValue=#{configValue} where configTypeName ='APP系统地址'
+	</update>
+
+
+    <update id="nianupdate" parameterType="SystemConfig">
+	update as_systemconfig set configValue=#{configValue} where configTypeName ='服务年限'
+	</update>
+
+
+    <select id="getSelect_All_Function" resultType="Function">
+        select id,functionName,creationTime,funcUrl,isStart
+        from as_function
+    </select>
+
+    <insert id="getInsert_Premission" parameterType="Premission">
+        insert into as_role_premission(roleId,functionId,creationTime,createdBy,isStart)
+        values(#{roleId},#{functionId},#{creationTime},#{createdBy},#{isStart})
+    </insert>
+
+    <select id="getSelect_Id" resultType="int">
+        SELECT id from as_role_premission where roleId=#{roleId} and functionId=#{functionId}
+    </select>
+
+    <delete id="getDelete_Premission">
+        delete from as_role_premission
+        where id=#{id}
+    </delete>
+</mapper>

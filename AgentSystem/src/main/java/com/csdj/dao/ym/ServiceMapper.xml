@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.ServiceMapper">
+
+    <!--显示所有服务信息-->
+    <select id="getAllconfig" resultType="SystemConfig">
+		SELECT * FROM as_systemconfig
+	</select>
+    <!--删除服务信息-->
+    <delete id="deleteSystemConfig" parameterType="SystemConfig">
+		DELETE FROM as_systemconfig WHERE id=#{id}
+	</delete>
+	<!--修改服务信息-->
+	<update id="updateConfig" parameterType="SystemConfig">
+		UPDATE as_systemconfig SET configTypeName=#{configTypeName},configValue=#{configValue},isStart=1 WHERE id=#{id}
+	</update>
+	<!--新增服务信息-->
+	<insert id="addConfig" parameterType="SystemConfig">
+		INSERT INTO
+		as_systemconfig (`configType`,`configTypeName`,`configTypeValue`,`configValue`,`isStart`)
+		VALUES (1,#{configTypeName},null,#{configValue},#{isStart})
+	</insert>
+
+
+
+
+</mapper>

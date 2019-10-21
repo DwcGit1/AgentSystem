@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.SystemconfigMapper">
+
+
+    <!--查询所有财务信息-->
+    <select id="getsystemconfig" resultType="SystemConfig">
+		SELECT * FROM as_systemconfig
+	</select>
+    <!--  删除财务信息-->
+
+    <delete id="deleteconfig" parameterType="SystemConfig">
+		DELETE FROM as_systemconfig WHERE id=#{id}
+	</delete>
+	<!--新增财务信息-->
+	<insert id="addsystemconfig" parameterType="SystemConfig">
+		INSERT INTO as_systemconfig (`configType`,`configTypeName`,`configTypeValue`,`configValue`,`isStart`)
+		VALUES (1,#{configTypeName},NULL ,NULL,#{isStart})
+	</insert>
+	<!--修改财务信息-->
+	<update id="updateconfig" parameterType="SystemConfig">
+		UPDATE as_systemconfig SET configTypeName=#{configTypeName},isStart=#{isStart} WHERE id=#{id}
+	</update>
+
+
+
+
+</mapper>

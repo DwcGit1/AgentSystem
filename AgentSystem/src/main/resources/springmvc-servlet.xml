@@ -83,5 +83,7 @@
 	
 	<!-- 加载静态资源 -->
 	<mvc:resources location="/statics/" mapping="/statics/**"/>
+	<!--<mvc:resources location="/statics/layui-v2.5.5/" mapping="/layui-v2.5.5/**"/>
+	<mvc:resources location="/statics/layui-v2.5.5/" mapping="/layui-v2.5.5/**"/>-->
 		
 </beans>
