@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.RoleMapper">
+
+    <!--显示所有角色信息-->
+    <select id="getRole" resultType="Role">
+		SELECT * FROM as_role
+	</select>
+    <!--新增角色信息-->
+    <insert id="addRole" parameterType="Role">
+		 INSERT INTO as_role
+		 (roleName,creationTime,createdBy,lastUpdateTime,isStart)
+		 VALUES (#{roleName},NOW(),'admin',null,#{isStart});
+	</insert>
+	<!--删除角色信息-->
+	<delete id="deleteRole" parameterType="Role">
+		DELETE FROM as_role WHERE id=#{id}
+	</delete>
+	<update id="updateRole" parameterType="Role">
+		UPDATE as_role
+		SET roleName=#{roleName},isStart=#{isStart}
+		WHERE id=#{id}
+	</update>
+
+
+
+</mapper>

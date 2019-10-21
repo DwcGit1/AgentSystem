@@ -13,12 +13,17 @@ public class SystemConfig extends Base {
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 	 */
+<<<<<<< HEAD
 	
+=======
+	private Integer id;
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	private Integer configType;
 	private String configTypeName;
 	private Integer configTypeValue;
 	private String configValue;
 	private Integer isStart;
+<<<<<<< HEAD
 	public Integer getConfigType() {
 		return configType;
 	}
@@ -53,4 +58,68 @@ public class SystemConfig extends Base {
 	
 	
 	
+=======
+
+	public SystemConfig() {
+	}
+
+	@Override
+	public Integer getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getConfigType() {
+		return configType;
+	}
+
+	public void setConfigType(Integer configType) {
+		this.configType = configType;
+	}
+
+	public String getConfigTypeName() {
+		return configTypeName;
+	}
+
+	public void setConfigTypeName(String configTypeName) {
+		this.configTypeName = configTypeName;
+	}
+
+	public Integer getConfigTypeValue() {
+		return configTypeValue;
+	}
+
+	public void setConfigTypeValue(Integer configTypeValue) {
+		this.configTypeValue = configTypeValue;
+	}
+
+	public String getConfigValue() {
+		return configValue;
+	}
+
+	public void setConfigValue(String configValue) {
+		this.configValue = configValue;
+	}
+
+	public Integer getIsStart() {
+		return isStart;
+	}
+
+	public void setIsStart(Integer isStart) {
+		this.isStart = isStart;
+	}
+
+	public SystemConfig(Integer id, Integer configType, String configTypeName, Integer configTypeValue, String configValue, Integer isStart) {
+		this.id = id;
+		this.configType = configType;
+		this.configTypeName = configTypeName;
+		this.configTypeValue = configTypeValue;
+		this.configValue = configValue;
+		this.isStart = isStart;
+	}
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 }

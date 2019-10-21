@@ -36,7 +36,14 @@ public class Keywords extends Base {
   UNIQUE KEY `keyword` (`keyword`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	 */
+<<<<<<< HEAD
 	
+=======
+
+	public Keywords() {
+	}
+
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	private String keywords;
 	private Integer agentId;
 	private String agentName;
@@ -63,7 +70,40 @@ public class Keywords extends Base {
 	private Integer isUse;
 	private String bossName;
 	private String customTypeName;
+<<<<<<< HEAD
 	
+=======
+
+	public Keywords(String keywords, Integer agentId, String agentName, Integer customId, String customName, BigDecimal preRegFrozenMoney, BigDecimal price, Integer productType, Integer serviceYears, Integer openApp, String appUserName, String appPassword, String loginUrl, String iosDownloadUrl, String androidDownloadUrl, String codeIosUrl, String codeAndroidUrl, Date preRegDatetime, Date preRegPassDatetime, Date regDatetime, Date regPassDatetime, Integer isPass, Integer checkStatus, Integer isUse, String bossName, String customTypeName) {
+		this.keywords = keywords;
+		this.agentId = agentId;
+		this.agentName = agentName;
+		this.customId = customId;
+		this.customName = customName;
+		this.preRegFrozenMoney = preRegFrozenMoney;
+		this.price = price;
+		this.productType = productType;
+		this.serviceYears = serviceYears;
+		this.openApp = openApp;
+		this.appUserName = appUserName;
+		this.appPassword = appPassword;
+		this.loginUrl = loginUrl;
+		this.iosDownloadUrl = iosDownloadUrl;
+		this.androidDownloadUrl = androidDownloadUrl;
+		this.codeIosUrl = codeIosUrl;
+		this.codeAndroidUrl = codeAndroidUrl;
+		this.preRegDatetime = preRegDatetime;
+		this.preRegPassDatetime = preRegPassDatetime;
+		this.regDatetime = regDatetime;
+		this.regPassDatetime = regPassDatetime;
+		this.isPass = isPass;
+		this.checkStatus = checkStatus;
+		this.isUse = isUse;
+		this.bossName = bossName;
+		this.customTypeName = customTypeName;
+	}
+
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	public String getCustomTypeName() {
 		return customTypeName;
 	}

@@ -1,7 +1,10 @@
 package com.csdj.entity;
 
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 
 public class Custom extends Base {
 
@@ -32,6 +35,7 @@ public class Custom extends Base {
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	 */
+<<<<<<< HEAD
 
 	@Override
 	public String toString() {
@@ -61,6 +65,8 @@ public class Custom extends Base {
 				'}';
 	}
 
+=======
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	private Integer id;
 	private Integer agentId;
 	private String agentCode;
@@ -83,6 +89,7 @@ public class Custom extends Base {
 	private String area;
 	private String companyAddress;
 	private String memo;
+<<<<<<< HEAD
 
 	public List<Contact> getList() {
 		return list;
@@ -94,6 +101,9 @@ public class Custom extends Base {
 
 	private List<Contact> list;
 
+=======
+	
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	public Integer getId() {
 		return id;
 	}

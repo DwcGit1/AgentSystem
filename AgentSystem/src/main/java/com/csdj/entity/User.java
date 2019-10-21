@@ -1,5 +1,6 @@
 package com.csdj.entity;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 public class User extends Base {
@@ -23,6 +24,73 @@ public class User extends Base {
 	private String userCode;
 	private String userName;
 	private String userPassword;
+=======
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
+public class User<date> extends Base {
+	public User(String userCode, String userName, String userPassword, Date creationTime, Date lastLoginTime, String createdBy, Date lastUpdateTime, Integer isStart, Integer roleId, String roleName) {
+		this.userCode = userCode;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.creationTime = creationTime;
+		this.lastLoginTime = lastLoginTime;
+		this.createdBy = createdBy;
+		this.lastUpdateTime = lastUpdateTime;
+		this.isStart = isStart;
+		this.roleId = roleId;
+		this.roleName = roleName;
+	}
+
+	public User() {
+	}
+
+	public User(Role role, String userCode, String userName, String userPassword, Date creationTime, Date lastLoginTime, String createdBy, Date lastUpdateTime, Integer isStart, Integer roleId, String roleName) {
+		this.role = role;
+		this.userCode = userCode;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.creationTime = creationTime;
+		this.lastLoginTime = lastLoginTime;
+		this.createdBy = createdBy;
+		this.lastUpdateTime = lastUpdateTime;
+		this.isStart = isStart;
+		this.roleId = roleId;
+		this.roleName = roleName;
+	}
+
+	/*
+        CREATE TABLE `as_user` (
+                  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '����ID',
+                  `userCode` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '�û�CODE',
+                  `userName` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '�û����',
+                  `userPassword` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '�û���¼����',
+                  `creationTime` datetime NOT NULL COMMENT 'ע��ʱ��',
+                  `lastLoginTime` datetime DEFAULT '2013-01-01 00:00:01' COMMENT '����¼ʱ��',
+                  `createdBy` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '������',
+                  `lastUpdateTime` datetime DEFAULT '2013-01-01 00:00:01' COMMENT '����޸�ʱ��',
+                  `isStart` int(11) DEFAULT '1' COMMENT '�Ƿ�����1Ϊ����0Ϊ������',
+                  `roleId` bigint(20) NOT NULL DEFAULT '0' COMMENT '������ɫ',
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+         *
+         */
+	private Role role;
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	private String userCode;
+	private String userName;
+	private String userPassword;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	private Date creationTime;
 	private Date lastLoginTime;
 	private String createdBy;

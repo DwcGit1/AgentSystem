@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.KeywordsMapper">
+
+    <!--查询所有关键字审核信息-->
+    <select id="getKeywords" resultType="Keywords">
+		SELECT id,keywords,customName,agentName,serviceYears,regDatetime,regPassDatetime,isPass,checkStatus,isUse
+		FROM as_keywords
+	</select>
+	<!--按关键词查询审核信息-->
+   	<select id="getlikeKeywords" resultType="Keywords">
+		SELECT id,keywords,customName,agentName,serviceYears,regDatetime,regPassDatetime,isPass,checkStatus,isUse
+		FROM as_keywords
+		WHERE keywords like CONCAT('%',#{keywords},'%')
+	</select>
+    <!--修改客户使用状态-->
+	<update id="updateKey" parameterType="Keywords">
+       UPDATE as_keywords SET isUse=0 WHERE id=#{id}
+     </update>
+	<!--修改客户不使用状态-->
+	<update id="updatenotKey" parameterType="Keywords">
+       UPDATE as_keywords SET isUse=1 WHERE id=#{id}
+     </update>
+
+
+	<!-- &lt;!&ndash;新增角色信息&ndash;&gt;
+     <insert id="addRole" parameterType="Keywords">
+          INSERT INTO as_role
+          (roleName,creationTime,createdBy,lastUpdateTime,isStart)
+          VALUES (#{roleName},NOW(),'admin',null,#{isStart});
+     </insert>
+     &lt;!&ndash;删除角色信息&ndash;&gt;
+     <delete id="deleteRole" parameterType="Keywords">
+         DELETE FROM as_role WHERE id=#{id}
+     </delete>
+     <update id="updateRole" parameterType="Keywords">
+         UPDATE as_role
+         SET roleName=#{roleName},isStart=#{isStart}
+         WHERE id=#{id}
+     </update>
+ -->
+
+
+</mapper>

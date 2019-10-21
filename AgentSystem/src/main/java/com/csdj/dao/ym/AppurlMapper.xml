@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.AppurlMapper">
+
+    <!--显示App地址信息-->
+    <select id="getAppConfig" resultType="SystemConfig">
+		SELECT * FROM as_systemconfig WHERE configTypeName='APP系统地址'
+	</select>
+   <!-- 修改App地址信息-->
+    <update id="updateAppConfig" parameterType="SystemConfig">
+		UPDATE as_systemconfig SET configValue=#{configValue} WHERE configTypeName='APP系统地址'
+	</update>
+
+
+
+
+</mapper>

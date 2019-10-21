@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.ym.YearServiceMapper">
+
+    <!--显示服务信息-->
+    <select id="getYearConfig" resultType="SystemConfig">
+		SELECT * FROM as_systemconfig WHERE configTypeName='服务年限'
+	</select>
+
+   <!-- 修改服务年限信息-->
+    <update id="updateYear" parameterType="SystemConfig">
+		UPDATE as_systemconfig SET configValue=#{configValue} WHERE configTypeName='服务年限'
+	</update>
+
+
+
+
+</mapper>

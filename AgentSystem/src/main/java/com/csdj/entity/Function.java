@@ -26,9 +26,28 @@ public class Function extends Base {
 	private String funcUrl;
 	private boolean isCheck = false;
 	private Integer parentId;
+<<<<<<< HEAD
 	
 	
 	
+=======
+
+	public Function() {
+	}
+
+	public Function(String functionCode, String functionName, Date creationTime, String createdBy, Date lastUpdateTime, Integer isStart, String funcUrl, boolean isCheck, Integer parentId) {
+		this.functionCode = functionCode;
+		this.functionName = functionName;
+		this.creationTime = creationTime;
+		this.createdBy = createdBy;
+		this.lastUpdateTime = lastUpdateTime;
+		this.isStart = isStart;
+		this.funcUrl = funcUrl;
+		this.isCheck = isCheck;
+		this.parentId = parentId;
+	}
+
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	public Integer getParentId() {
 		return parentId;
 	}

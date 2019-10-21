@@ -18,11 +18,44 @@ public class AccountDetail extends Base {
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	 */
+<<<<<<< HEAD
 	private Integer userId;
 	private Integer detailType;
 	private String  detailTypeName;
 	private BigDecimal money;
 	private BigDecimal accountMoney;
+=======
+	private Integer id;
+
+
+	public AccountDetail(Integer userId, Integer detailType, String detailTypeName, Integer money, Integer accountMoney, String memo, Date detailDateTime) {
+		this.userId = userId;
+		this.detailType = detailType;
+		this.detailTypeName = detailTypeName;
+		this.money = money;
+		this.accountMoney = accountMoney;
+		this.memo = memo;
+		this.detailDateTime = detailDateTime;
+
+	}
+
+
+	@Override
+	public Integer getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	private Integer userId;
+	private Integer detailType;
+	private String  detailTypeName;
+	private Integer money;
+	private Integer accountMoney;
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 	private String memo;
 	private Date detailDateTime;
 	private String userName;
@@ -45,6 +78,7 @@ public class AccountDetail extends Base {
 	public void setDetailTypeName(String detailTypeName) {
 		this.detailTypeName = detailTypeName;
 	}
+<<<<<<< HEAD
 	public BigDecimal getMoney() {
 		return money;
 	}
@@ -55,6 +89,18 @@ public class AccountDetail extends Base {
 		return accountMoney;
 	}
 	public void setAccountMoney(BigDecimal accountMoney) {
+=======
+	public Integer getMoney() {
+		return money;
+	}
+	public void setMoney(Integer money) {
+		this.money = money;
+	}
+	public Integer getAccountMoney() {
+		return accountMoney;
+	}
+	public void setAccountMoney(Integer accountMoney) {
+>>>>>>> 5f5f3bce419584250f9cd33a390f38d71be49773
 		this.accountMoney = accountMoney;
 	}
 	public String getMemo() {
