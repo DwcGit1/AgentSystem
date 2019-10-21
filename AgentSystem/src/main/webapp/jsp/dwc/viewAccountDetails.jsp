@@ -6,38 +6,60 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>查看账户明细</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/staticslayui-v2.5.5/layui/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/statics/layui-v2.5.5/layui/css/layui.css">
 </head>
 <body>
-    <table class="layui-table">
-        <colgroup>
-            <col width="150">
-            <col width="200">
-            <col>
-        </colgroup>
-        <thead>
-            <tr>
-                <th>序号</th>
-                <th>账务类型</th>
-                <th>账务资金</th>
-                <th>账户余额</th>
-                <th>备注信息</th>
-                <th>明细时间</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>贤心</td>
-                <td>2016-11-29</td>
-                <td>人生就像是一场修行</td>
-                <td>贤心</td>
-                <td>2016-11-29</td>
-                <td>人生就像是一场修行</td>
-            </tr>
-        </tbody>
-    </table>
+
+    <table class="layui-hide" id="test" lay-filter="test"></table>
+
+    <script src="${pageContext.request.contextPath}/statics/layui-v2.5.5/layui/layui.all.js" charset="utf-8"></script>
+    <script>
+        layui.use('table', function() {
+            var table = layui.table;
+
+            table.render({
+                elem: '#test',
+                url: '${pageContext.request.contextPath}/sys/showAccountDetailService.json',
+                title: '用户数据表',
+                cols: [
+                    [{
+                        field: 'id',
+                        title: '序号',
+                        fixed: 'left',
+                        unresize: true,
+                        sort: true
+                    }, {
+                        field: 'detailTypeName',
+                        title: '账务类型',
+                        unresize: true
+                    }, {
+                        field: 'money',
+                        title: '账务资金',
+                        unresize: true,
+                        sort: true
+                    }, {
+                        field: 'accountMoney',
+                        title: '账户余额',
+                        unresize: true
+                    }, {
+                        field: 'memo',
+                        title: '备注信息',
+                        unresize: true
+                    },  {
+                        field: 'detailDateTime',
+                        title: '明细时间',
+                        unresize: true
+                    }]
+                ],
+                page: true,
+                limit: 3
+            });
+        });
+    </script>
 </body>
 </html>

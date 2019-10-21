@@ -66,7 +66,11 @@
 		<property name="viewResolvers">
 			<list>
 				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-					<property name="prefix" value="/jsp/"/>
+					<property name="prefix" value="/jsp/dwc/"/>
+					<property name="suffix" value=".jsp"/>
+				</bean>
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/jsp/ym/"/>
 					<property name="suffix" value=".jsp"/>
 				</bean>
 			</list>
@@ -74,12 +78,12 @@
 	</bean>
 	
 	<!-- 拦截器 -->
-	<!-- <mvc:interceptors>
+	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/sys/**"/>
 			<bean class="com.csdj.interceptor.SysInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 	
 	<!-- 加载静态资源 -->
 	<mvc:resources location="/statics/" mapping="/statics/**"/>

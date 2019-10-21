@@ -3,5 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.csdj.dao.dwc.login.LoginMapper">
-
+    <select id="userLogin" resultType="User">
+        SELECT * from as_user WHERE userCode=#{userCode} AND userPassword=#{userPassword}
+    </select>
 </mapper>

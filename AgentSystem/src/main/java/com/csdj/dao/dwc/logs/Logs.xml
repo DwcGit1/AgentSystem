@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.dwc.logs.LogsMapper">
+
+    <select id="getLogs" resultType="Logs">
+        SELECT * FROM as_logs limit #{page},#{limit}
+    </select>
+    
+    <select id="getLogsCount" resultType="int">
+        SELECT count(1) FROM as_logs
+    </select>
+</mapper>

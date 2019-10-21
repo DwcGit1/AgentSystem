@@ -3,6 +3,8 @@
 
   <display-name>Archetype Created Web Application</display-name>
   <welcome-file-list>
+    <welcome-file>/jsp/dwc/login.html</welcome-file>
+    <welcome-file>/jsp/dwc/login.htm</welcome-file>
     <welcome-file>/jsp/dwc/login.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>

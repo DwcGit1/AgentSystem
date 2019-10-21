@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.dwc.checkByDateAccountDetails.CheckByDateAccountDetailsMapper">
+    <select id="getAccountDetailList" resultType="accountDetail" parameterType="accountDetail">
+        select detail.*,user.userName from as_accountdetail as detail,as_user as user
+        <trim prefix="where" prefixOverrides="and | or">
+
+            and user.id = detail.userId
+
+            <if test=" userId != null">
+                and detail.userId = #{userId}
+            </if>
+            <if test=" detailType != null">
+                and detail.detailType = #{detailType}
+            </if>
+            <if test="startTime != null">
+                and detail.detailDateTime >= #{startTime}
+            </if>
+            <if test="endTime != null">
+                and #{endTime} >= detail.detailDateTime
+            </if>
+            order by detail.detailDateTime desc
+        </trim>
+    </select>
+</mapper>

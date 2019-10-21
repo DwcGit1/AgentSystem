@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-<form class="layui-form" action="" align="center">
+<form class="layui-form" action="${pageContext.request.contextPath}/user/dologin.html" align="center" method="post">
     <div>
         <div><img src="${pageContext.request.contextPath}/statics/img/u2.png"></div>
         <div class="divcss5-a">
@@ -24,7 +24,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">账号：</label>
                         <div class="layui-input-block">
-                            <input type="text" name="title" required lay-verify="required" placeholder="请输入账号" autocomplete="off"
+                            <input type="text" name="userCode" required lay-verify="required" placeholder="请输入账号" autocomplete="off"
                                    class="layui-input">
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">密码：</label>
                         <div class="layui-input-block">
-                            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+                            <input type="password" name="userPassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
                                    class="layui-input">
                         </div>
                     </div>
@@ -43,7 +43,7 @@
             </tr>
         </table>
         <div style="margin-top: 10px; font-weight: bold;">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">登录 | Login</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit">登录 | Login</button>
         </div>
     </div>
 </form>
@@ -61,7 +61,7 @@
             $(data1).each(function(){
                 alert($(this))
             })
-            return false;
+            return true;
         });
     });
 </script>

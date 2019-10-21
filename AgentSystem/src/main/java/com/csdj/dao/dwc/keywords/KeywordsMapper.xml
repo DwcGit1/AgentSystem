@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.dwc.keywords.KeywordsMapper">
+
+    <select id="getcustomername" resultType="java.lang.String">
+		SELECT customName FROM as_customs
+	</select>
+
+    <insert id="addKeywords" parameterType="keywords">
+		insert into as_keywords (keywords,agentId,agentName,customId,customName,preRegFrozenMoney,price,productType,serviceYears,openApp,appUserName,
+		appPassword,loginUrl,iosDownloadUrl,androidDownloadUrl,codeIosUrl,codeAndroidUrl,preRegDatetime,preRegPassDatetime,regDatetime,regPassDatetime,
+		isPass,checkStatus,isUse) values(#{keywords},#{agentId},#{agentName},#{customId},#{customName},#{preRegFrozenMoney},#{price},#{productType},
+		#{serviceYears},#{openApp},#{appUserName},#{appPassword},#{loginUrl},#{iosDownloadUrl},#{androidDownloadUrl},#{codeIosUrl},#{codeAndroidUrl},#{preRegDatetime},#{preRegPassDatetime},#{regDatetime},#{regPassDatetime},#{isPass},#{checkStatus},#{isUse})
+	</insert>
+
+    <select id="getKeywordsByKeyword" resultType="keywords" parameterType="keywords">
+		select * from as_keywords where keywords = #{keywords} and checkStatus != 3
+	</select>
+</mapper>

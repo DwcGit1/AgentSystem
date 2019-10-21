@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.dao.dwc.portalManagement.PortalManagementMapper">
+    <select id="getSelect_Keywords_Count" resultType="int">
+        select count(id) from as_keywords
+    </select>
+
+    <select id="getListByName" resultType="Keywords">
+        select * from as_keywords
+        <where>
+            <if test="keywords!=null and keywords!=''">and keywords=#{keywords}</if>
+            <if test="customName!=null and customName != ''">and customName = #{customName}</if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+
+    <update id="modifyKeywords" parameterType="keywords">
+        update as_keywords
+        <set>
+            <if test="appUserName != null">appUserName = #{appUserName},</if>
+            <if test="appPassword != null">appPassword = #{appPassword},</if>
+            <if test="iosDownloadUrl != null">iosDownloadUrl = #{iosDownloadUrl},</if>
+            <if test="androidDownloadUrl != null">androidDownloadUrl = #{androidDownloadUrl},</if>
+            <if test="codeIosUrl != null">codeIosUrl = #{codeIosUrl},</if>
+            <if test="codeAndroidUrl != null">codeAndroidUrl = #{codeAndroidUrl},</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
